@@ -1,0 +1,32 @@
+app:
+  timezone: Asia/Seoul
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/noticement
+    username: noticement
+    password: noticement
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+
+harness:
+  crawl:
+    blockPrivateNetwork: true
+    maxRedirects: 3
+    connectTimeoutMs: 3000
+    readTimeoutMs: 10000
+    maxBodyBytes: 5242880
+    allowedSchemes:
+      - https
+      - http
+    allowedContentTypes:
+      - text/html
+      - application/json
+      - application/xml
+      - text/xml
+      - text/plain
+      - application/pdf

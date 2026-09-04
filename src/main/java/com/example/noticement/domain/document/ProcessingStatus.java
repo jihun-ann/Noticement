@@ -1,0 +1,20 @@
+package com.example.noticement.domain.document;
+
+public enum ProcessingStatus {
+    COLLECTED,
+    NORMALIZED,
+    ANALYSIS_PENDING,
+    ANALYZED,
+    ANALYSIS_VALIDATED,
+    NOTION_PENDING,
+    NOTION_PUBLISHED,
+    DELIVERY_PENDING,
+    MAIL_SENT,
+
+    COLLECT_FAILED,
+    ANALYSIS_FAILED,
+    ANALYSIS_REJECTED,
+    NOTION_FAILED,
+    MAIL_FAILED,
+    DEAD_LETTER
+}
