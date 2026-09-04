@@ -54,6 +54,24 @@ harness:
       reviewBelow: 0.5
       blockBelow: 0.2
 
+  notion:
+    allowedDatabaseIds:
+      - ${NOTION_DATABASE_ID:}
+    maxTitleLength: 200
+    maxPayloadBytes: 200000
+    maxBlockCount: 90
+    secretPatterns:
+      - "AKIA[0-9A-Z]{16}"
+      - "-----BEGIN (RSA |EC |)PRIVATE KEY-----"
+      - "sk-[A-Za-z0-9]{20,}"
+
+notion:
+  apiBaseUrl: https://api.notion.com/v1
+  apiVersion: "2022-06-28"
+  apiKey: ${NOTION_API_KEY:}
+  databaseId: ${NOTION_DATABASE_ID:}
+  timeoutMs: 15000
+
 llm:
   timeoutMs: 30000
   analysis:
