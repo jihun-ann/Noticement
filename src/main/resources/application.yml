@@ -30,3 +30,39 @@ harness:
       - text/xml
       - text/plain
       - application/pdf
+
+  ai:
+    prompt-injection:
+      suspiciousPhrases:
+        - "ignore previous instructions"
+        - "ignore all previous instructions"
+        - "disregard previous instructions"
+        - "call this api"
+        - "send credentials"
+        - "send your credentials"
+        - "write this secret"
+        - "you are now"
+        - "new instructions:"
+        - "system prompt"
+    schema:
+      maxSummaryLength: 2000
+      maxActionItems: 10
+    evidence:
+      requireEvidenceForSecurityIssues: true
+      requireEvidenceForBreakingChanges: true
+    confidence:
+      reviewBelow: 0.5
+      blockBelow: 0.2
+
+llm:
+  timeoutMs: 30000
+  analysis:
+    provider: openai
+    baseUrl: https://api.openai.com/v1
+    apiKey: ${OPENAI_API_KEY:}
+    model: gpt-4o-mini
+  weekly:
+    provider: openai
+    baseUrl: https://api.openai.com/v1
+    apiKey: ${OPENAI_API_KEY:}
+    model: gpt-4o-mini
