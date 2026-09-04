@@ -12,6 +12,11 @@ spring:
     open-in-view: false
   flyway:
     enabled: true
+  mail:
+    host: ${MAIL_SMTP_HOST:localhost}
+    port: ${MAIL_SMTP_PORT:25}
+    username: ${MAIL_SMTP_USERNAME:}
+    password: ${MAIL_SMTP_PASSWORD:}
 
 harness:
   crawl:
@@ -64,6 +69,16 @@ harness:
       - "AKIA[0-9A-Z]{16}"
       - "-----BEGIN (RSA |EC |)PRIVATE KEY-----"
       - "sk-[A-Za-z0-9]{20,}"
+
+  mail:
+    mode: DRY_RUN
+    requireNotionUrl: true
+    allowExternalRecipients: false
+    recipientAllowlist: []
+    maxSubjectLength: 200
+    maxRecipientsPerMessage: 20
+    maxMessagesPerRun: 50
+    deduplicate: true
 
 notion:
   apiBaseUrl: https://api.notion.com/v1
